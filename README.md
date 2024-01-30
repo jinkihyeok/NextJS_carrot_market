@@ -10,4 +10,6 @@
 ## Backend
 
 - Use Prisma, severless backend
-- Authentication: Use Iron-Session
+- Authentication:
+  - Use Iron-Session
+  - Use SWR
