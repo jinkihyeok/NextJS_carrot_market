@@ -1,7 +1,6 @@
 import FloatingButton from "@/components/floating-button";
 import Item from "@/components/item";
 import Layout from "@/components/layout";
-import useUser from "@/libs/client/useUser";
 import { Product } from "@prisma/client";
 import { NextPage } from "next";
 import Head from "next/head";
@@ -19,16 +18,14 @@ export interface ProductWithCount extends Product {
 }
 
 const Home: NextPage = () => {
-  const { user, isLoading } = useUser();
   const { data } = useSWR<ProductsResponse>("/api/products");
-  console.log(data);
 
   return (
     <Layout title="홈" hasTabBar>
       <Head>
         <title>Home</title>
       </Head>
-      <div className="flex flex-col space-y-5">
+      <div className="flex flex-col space-y-5 divide-y">
         {data?.products?.map((product) => (
           <Item
             id={product.id}
